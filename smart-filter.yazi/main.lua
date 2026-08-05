@@ -13,13 +13,22 @@ local hovered = ya.sync(function()
 	}
 end)
 
+local timeout = 0.3
+
+local function setup(state, opts)
+	opts = opts or {}
+	if opts.timeout ~= nil then
+		timeout = tonumber(opts.timeout) or 0.3
+	end
+end
+
 local function prompt()
-	return ya.input {
+	return ya.input({
 		title = "Smart filter:",
 		pos = { "top-center", y = 2, w = 50 },
 		realtime = true,
 		debounce = 0.1,
-	}
+	})
 end
 
 local function entry()
@@ -36,6 +45,7 @@ local function entry()
 
 		local h = hovered()
 		if h.unique and h.is_dir then
+			ya.sleep(timeout)
 			ya.emit("escape", { filter = true })
 			ya.emit("enter", {})
 			input = prompt()
@@ -47,4 +57,4 @@ local function entry()
 	end
 end
 
-return { entry = entry }
+return { setup = setup, entry = entry }
