@@ -1,36 +1,40 @@
-# 🌲 eza-preview.yazi
+# eza-preview.yazi
 
 A zero-dependency directory tree previewer plugin for [Yazi](https://github.com/sxyazi/yazi) using [`eza`](https://github.com/eza-community/eza), featuring native support for Yazi Nightly `trash://` virtual VFS URIs.
+
+## AI Assistance Disclosure
+
+This refactor, `trash://` VFS engine implementation, and embedded unit test suite were developed with AI pair programming assistance, guided by human architectural design, specification alignment (Yazi PR #4144), and TDD verification.
 
 > [!WARNING]
 > **Maintenance & PR Notice**
 > This is a personal fork tailored specifically for my personal workflow (zero-dependency single-file, embedded TDD test suite, and Yazi Nightly `trash://` VFS engine).
 > **I will likely not be accepting Pull Requests or active feature requests.**
 > If you are looking for an actively maintained version that accepts community PRs, please use the original repository:
-> 👉 **[ahkohd/eza-preview.yazi](https://github.com/ahkohd/eza-preview.yazi)**
+> [ahkohd/eza-preview.yazi](https://github.com/ahkohd/eza-preview.yazi)
 
 ---
 
-## ✨ Features
+## Features
 
-- ⚡ **Zero External Dependencies**: Pure Lua standard library implementation.
-- 🗑️ **Yazi Nightly `trash://` VFS Engine**: Full support for FreeDesktop `.trashinfo` metadata decoding, subfolder paths at any depth $N$, timestamp collision IDs, and dynamic external drive mount paths (`.Trash-1000/files`).
-- 🚀 **100x Speed Protection**: Automatically disables heavy git status scans (`--git-ignore`) and unbounded symlink traversals (`--follow-symlinks`) inside Trash directories to prevent UI freezes.
-- 🧪 **Embedded TDD Test Runner**: Embedded unit test suite executable directly via `lua main.lua --test`.
+- **Zero External Dependencies**: Pure Lua standard library implementation.
+- **Yazi Nightly `trash://` VFS Engine**: Full support for FreeDesktop `.trashinfo` metadata decoding, subfolder paths at any depth N, timestamp collision IDs, and dynamic external drive mount paths (`.Trash-1000/files`).
+- **100x Speed Protection**: Automatically disables heavy git status scans (`--git-ignore`) and unbounded symlink traversals (`--follow-symlinks`) inside Trash directories to prevent UI freezes.
+- **Embedded TDD Test Runner**: Embedded unit test suite executable directly via `lua main.lua --test`.
 
 ---
 
-## 📦 Installation
+## Installation
 
-Add `eza-preview.yazi` using Yazi's package manager:
+Add `eza-preview.yazi` from the monorepo using Yazi's package manager:
 
 ```bash
-ya pkg add yoshijulas/eza-preview.yazi
+ya pkg add yoshijulas/yazi-plugins:eza-preview
 ```
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### 1. Previewer Rule (`yazi.toml`)
 
@@ -86,7 +90,7 @@ desc = "Toggle showing git status"
 
 ---
 
-## 🧪 Testing
+## Testing
 
 Run the embedded zero-dependency unit test suite:
 
@@ -96,9 +100,6 @@ lua main.lua --test
 
 ---
 
-## 📄 License & Attribution
+## License
 
 Licensed under the [MIT License](LICENSE).
-
-### 🤖 AI Assistance Disclosure
-This refactor, `trash://` VFS engine implementation, and embedded unit test suite were developed with AI pair programming assistance, guided by human architectural design, specification alignment (Yazi PR #4144), and TDD verification.
