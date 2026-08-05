@@ -1,0 +1,6 @@
+[plugin]
+name = "eza-preview"
+version = "0.1.0"
+description = "Fast, zero-dependency eza directory tree previewer for Yazi with full trash:// VFS support."
+authors = ["yoshijulas <yoshijulas@live.com>"]
+license = "MIT"
